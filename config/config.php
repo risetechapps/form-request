@@ -5,11 +5,11 @@
  */
 return [
 
-    'rules' => [
+    'validators' => [
 
     ],
 
-    'form' => [
+    'forms' => [
 
     ]
 ];

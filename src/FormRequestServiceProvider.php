@@ -54,7 +54,7 @@ class FormRequestServiceProvider extends ServiceProvider
 
     private function registerRules(): void
     {
-        $rules = config('rules.rules') ?? [];
+        $rules = config('rules.validators') ?? [];
 
         foreach ($rules as $rule => $className) {
 

@@ -6,7 +6,7 @@ class Rules
 {
     public static function default(): array
     {
-        $form = config('rules.form') ?? [];
+        $form = config('rules.forms') ?? [];
 
         return array_merge($form,
             [
