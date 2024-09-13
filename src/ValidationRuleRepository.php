@@ -16,7 +16,7 @@ class ValidationRuleRepository
         $model = new FormRequestModel();
 
         $where = array_merge([
-            'forms' => $name
+            'form' => $name
         ], $parameter);
 
         $results = $model
