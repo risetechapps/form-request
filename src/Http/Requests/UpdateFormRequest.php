@@ -30,8 +30,10 @@ class UpdateFormRequest extends FormRequest
 
     public function authorize(): bool
     {
-        return true;
-        return auth()->check();
+        if(auth()->check()){
+            return true;
+        }
+        return false;
     }
 
     public function rules(): array

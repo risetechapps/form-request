@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use RiseTech\FormRequest\Commands\MigrateCommand;
 use RiseTech\FormRequest\Commands\SeedCommand;
 use Illuminate\Support\Facades\Validator;
+use RiseTech\FormRequest\Contracts\ValidatorContract;
+
 class FormRequestServiceProvider extends ServiceProvider
 {
     /**
@@ -56,10 +58,11 @@ class FormRequestServiceProvider extends ServiceProvider
 
         foreach ($rules as $rule => $className) {
 
-            Validator::extend($rule, function ($attribute, $value, $parameters, $validator) use ($className) {
-                return $className::validate($attribute, $value, $parameters, $validator);
-            });
-
+            if($className instanceof ValidatorContract){
+                Validator::extend($rule, function ($attribute, $value, $parameters, $validator) use ($className) {
+                    return $className::validate($attribute, $value, $parameters, $validator);
+                });
+            }
         }
     }
 }

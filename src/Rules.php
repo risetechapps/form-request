@@ -11,7 +11,7 @@ class Rules
         return array_merge($form,
             [
                 'form_request' => [
-                    'form' => 'bail|required|min:3|unique:form_requests,form|isName',
+                    'form' => 'bail|required|min:3|unique:form_requests,form',
                     'rules' => 'bail|required|array',
                 ]
             ]
