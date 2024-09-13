@@ -1,11 +1,11 @@
 {
-    "name": "risetech/form-request",
-    "description": "",
+    "name": "risetechapps/form-request",
+    "description": "Package Form Request",
     "keywords": [
         "risetech",
         "form-request"
     ],
-    "homepage": "https://github.com/risetech/form-request",
+    "homepage": "https://github.com/risetechapps/form-request",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -54,5 +54,7 @@
                 "FormRequest": "RiseTech\\FormRequest\\FormRequestFacade"
             }
         }
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
