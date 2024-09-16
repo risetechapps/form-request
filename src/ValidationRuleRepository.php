@@ -2,7 +2,6 @@
 
 namespace RiseTech\FormRequest;
 
-use Illuminate\Support\Facades\DB;
 use \RiseTech\FormRequest\Models\FormRequest as FormRequestModel;
 
 class ValidationRuleRepository
@@ -11,7 +10,10 @@ class ValidationRuleRepository
     public function getRules(string $name, array $parameter = []): array
     {
 
-        $validationRules = [];
+        $validationRules = [
+            'rules'=> [],
+            'messages' => []
+        ];
 
         $model = new FormRequestModel();
 
