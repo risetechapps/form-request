@@ -58,7 +58,7 @@ class FormRequestServiceProvider extends ServiceProvider
 
         foreach ($rules as $rule => $className) {
 
-            if($className instanceof ValidatorContract){
+            if(new $className() instanceof ValidatorContract){
                 Validator::extend($rule, function ($attribute, $value, $parameters, $validator) use ($className) {
                     return $className::validate($attribute, $value, $parameters, $validator);
                 });
