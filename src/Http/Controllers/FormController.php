@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use RiseTech\FormRequest\Http\Requests\StoreFormRequest;
 use RiseTech\FormRequest\Http\Requests\UpdateFormRequest;
+use RiseTech\FormRequest\Http\Resources\FormRequestResource;
 use RiseTech\FormRequest\Models\FormRequest;
 use RiseTech\FormRequest\Rules;
 use RiseTech\FormRequest\ValidationRuleRepository;
@@ -18,11 +19,10 @@ class FormController extends Controller
         try {
 
             $model = new FormRequest();
-            $data = $model->all();
 
             return response()->json([
                 'success' => true,
-                'data' => $data
+                'data' => FormRequestResource::collection($model->all())
             ]);
         } catch (\Exception $e) {
             return response()->json(['success' => false, $e->getMessage()], 500);
@@ -52,7 +52,7 @@ class FormController extends Controller
 
             return response()->json([
                 'success' => true,
-                'data' => $data
+                'data' => FormRequestResource::make( $model->find($request->id))
             ]);
         } catch (\Exception $e) {
             return response()->json(['success' => false], 500);
