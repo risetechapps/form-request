@@ -56,7 +56,7 @@ class ReceitaWsCnpj  extends ServiceCnpj
             ];
 
         } catch (\Exception $e) {
-            dd($e);
+
             return null;
         }
     }

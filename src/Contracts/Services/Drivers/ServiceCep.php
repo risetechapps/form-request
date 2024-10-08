@@ -50,6 +50,8 @@ abstract class ServiceCep
                 }
             }
         }
+
+        return $name;
     }
 
     public static function getIsoState(string $name, $country): string
@@ -58,10 +60,13 @@ abstract class ServiceCep
         $data = ServicesForm::getStates($country);
 
         for ($i = 0; $i < count($data); $i++) {
-
-            if (mb_strtolower($data[$i]['name']) == $name || mb_strtolower($data[$i]['iso3']) == $name) {
-                return $data[$i]['iso3'];
+            if (mb_strtolower($data[$i]['name']) == $name
+                || mb_strtolower($data[$i]['country']) == $name
+                || mb_strtolower($data[$i]['state']) == $name) {
+                return $data[$i]['state'];
             }
         }
+
+        return $name;
     }
 }

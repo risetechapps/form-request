@@ -18,7 +18,6 @@ class FormServiceController extends Controller
         $data = Cache::remember("FORM_SERVICE_CEP_{$id}", Carbon::now()->addHours(24), function () use ($id) {
             return ServicesForm::getCEP($id);
         });
-        
         return response()->json([
             'success' => !is_null($data),
             'data' => $data

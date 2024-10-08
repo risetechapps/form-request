@@ -44,7 +44,7 @@ class HubDesenvolvedorCPF extends ServiceCpf
             ];
 
         } catch (\Exception $e) {
-            dd($e);
+
             return null;
         }
     }

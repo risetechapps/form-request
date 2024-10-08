@@ -73,7 +73,7 @@ class ServicesForm extends Service implements ServicesFormContract
                     return $result;
                 }
             } catch (\Exception $e) {
-                dd($e);
+
             }
         }
         return $result;

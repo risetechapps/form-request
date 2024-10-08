@@ -10,6 +10,13 @@ class ServiceApi
     public static function drivers(): array
     {
         return [
+            /*
+             * https://opencep.com/v1/21720590
+             * https://api.brasilaberto.com/v1/zipcode/26277630
+             * https://cep.awesomeapi.com.br/json/05424020
+             * */
+
+
             'cep' => [
                 Drivers\CEP\ViaCep::class,
                 Drivers\CEP\BrasilApiCepOne::class,
