@@ -16,7 +16,7 @@ class FormServiceController extends Controller
         $id = $request->id;
 
         $data = Cache::remember("FORM_SERVICE_CEP_{$id}", Carbon::now()->addHours(24), function () use ($id) {
-            returnServicesForm::getCEP($id);
+            return ServicesForm::getCEP($id);
         });
 
         return response()->json([
@@ -30,7 +30,7 @@ class FormServiceController extends Controller
         $id = $request->id;
 
         $data = Cache::remember("FORM_SERVICE_CNPJ_{$id}", Carbon::now()->addHours(24), function () use ($id) {
-            returnServicesForm::getCNPJ($id);
+            return ServicesForm::getCNPJ($id);
         });
 
         return response()->json([

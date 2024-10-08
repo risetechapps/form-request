@@ -21,7 +21,7 @@ class HubDesenvolvedorCPF extends ServiceCpf
 
         $client = new Client();
 
-        $token = "159958200XaVmWOAeuZ288799680";
+        $token = env("TOKEN_CPF", "");
 
         try {
             $response = $client->get("https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={$cpf}&data=${date}&token=${token}");
