@@ -25,7 +25,7 @@ class BrasilApiCepTwo extends ServiceCep
             }
 
             return [
-                'cep' => self::cep($dados),
+                'zip_code' => self::cep($dados),
                 'address' => self::address($dados),
                 'number' => self::number($dados),
                 'complement' => self::complement($dados),
