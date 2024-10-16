@@ -43,7 +43,7 @@ class BrasilApiCnpj extends ServiceCnpj
                 'type' => static::getType($dados),
                 'address' => [
                     'cep' => static::cep($dados),
-                    'address' => static::address($dados),
+                    'zip_code' => static::address($dados),
                     'number' => static::number($dados),
                     'complement' => static::complement($dados),
                     'district' => static::district($dados),

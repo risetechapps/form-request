@@ -42,7 +42,7 @@ class ReceitaWsCnpj  extends ServiceCnpj
                 'date_deleted' => static::deletionDate($dados),
                 'type' => static::getType($dados),
                 'address' => [
-                    'cep' => static::cep($dados),
+                    'zip_code' => static::cep($dados),
                     'address' => static::address($dados),
                     'number' => static::number($dados),
                     'complement' => static::complement($dados),
