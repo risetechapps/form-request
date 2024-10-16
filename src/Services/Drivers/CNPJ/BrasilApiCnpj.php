@@ -24,6 +24,9 @@ class BrasilApiCnpj extends ServiceCnpj
                 return null;
             }
 
+            $country = static::country($dados);
+            $state = static::state($dados, $country);
+
             return [
                 'cnpj' => static::cnpj($dados),
                 'social_name' => static::socialName($dados),
@@ -44,9 +47,9 @@ class BrasilApiCnpj extends ServiceCnpj
                     'number' => static::number($dados),
                     'complement' => static::complement($dados),
                     'district' => static::district($dados),
+                    'country' => $country,
+                    'state' => $state,
                     'city' => static::city($dados),
-                    'state' => static::state($dados),
-                    'country' => static::country($dados),
                 ],
                 'client' => [
                     'name' => static::name($dados),
@@ -90,14 +93,14 @@ class BrasilApiCnpj extends ServiceCnpj
         return $data['municipio'] ?? null;
     }
 
-    protected static function state($data): ?string
+    protected static function state($data, $country): ?string
     {
-        return $data['uf'] ?? null;
+        return static::getIsoState($data['uf'] ?? null, $country);
     }
 
     protected static function country($data): ?string
     {
-        return 'Brasil';
+        return static::getIsoCountry('Brasil');
     }
 
     protected static function cnpj($data): ?string
