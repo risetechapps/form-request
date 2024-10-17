@@ -64,9 +64,19 @@ class FormRequestServiceProvider extends ServiceProvider
 
     private function registerRules(): void
     {
-        $rules = config('rules.validators') ?? [];
+        $validatorConfig = config('rules.validators') ?? [];
+        $validatorDefault = Rules::defaultValidators();
 
-        foreach ($rules as $rule => $className) {
+        foreach ($validatorConfig as $rule => $className) {
+
+            if(new $className() instanceof ValidatorContract){
+                Validator::extend($rule, function ($attribute, $value, $parameters, $validator) use ($className) {
+                    return $className::validate($attribute, $value, $parameters, $validator);
+                });
+            }
+        }
+
+        foreach ($validatorDefault as $rule => $className) {
 
             if(new $className() instanceof ValidatorContract){
                 Validator::extend($rule, function ($attribute, $value, $parameters, $validator) use ($className) {

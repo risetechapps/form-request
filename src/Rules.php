@@ -2,9 +2,11 @@
 
 namespace RiseTech\FormRequest;
 
+use RiseTech\FormRequest\Services\Validator;
+
 class Rules
 {
-    public static function default(): array
+    public static function defaultRules(): array
     {
         $form = config('rules.forms') ?? [];
 
@@ -16,5 +18,15 @@ class Rules
                 ]
             ]
         );
+    }
+
+    public static function defaultValidators(): array
+    {
+
+        return [
+            'cpf' => Validator\validateCPF::class,
+            'cnpj' => Validator\validateCNPJ::class,
+            'cellphone' => Validator\validateCellphone::class,
+        ];
     }
 }

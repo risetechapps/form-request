@@ -30,7 +30,7 @@ class ValidationRuleRepository
             $validationRules['messages'] = $this->generateMessages($validationRules['rules']);
         } else {
 
-            $default = Rules::default();
+            $default = Rules::defaultRules();
 
             if (array_key_exists($name, $default)) {
                 $validationRules['rules'] = $default[$name];

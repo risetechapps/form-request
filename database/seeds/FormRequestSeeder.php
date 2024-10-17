@@ -10,7 +10,7 @@ class FormRequestSeeder extends Seeder
 {
     public function run(): void
     {
-        foreach (Rules::default() as $key => $value) {
+        foreach (Rules::defaultRules() as $key => $value) {
 
             if(!FormRequest::where('form' , $key)->exists()){
 
