@@ -12,7 +12,7 @@ abstract class ServiceCnpj extends ServiceCep
     abstract protected static function cnpj($data): ?string;
 
     /** Get Razão Social */
-    abstract protected static function socialName($data): ?string;
+    abstract protected static function corporateReason($data): ?string;
 
     /** Get Nome Fantasia */
     abstract protected static function fantasyName($data): ?string;

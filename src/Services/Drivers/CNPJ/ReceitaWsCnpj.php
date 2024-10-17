@@ -29,7 +29,7 @@ class ReceitaWsCnpj  extends ServiceCnpj
 
             return [
                 'cnpj' => static::cnpj($dados),
-                'social_name' => static::socialName($dados),
+                'corporate_reason' => static::corporateReason($dados),
                 'fantasy_name' => static::fantasyName($dados),
                 'size' => static::size($dados),
                 'cnae' => static::cnae($dados),
@@ -109,7 +109,7 @@ class ReceitaWsCnpj  extends ServiceCnpj
         return $data['cnpj'] ?? null;
     }
 
-    protected static function socialName($data): ?string
+    protected static function corporateReason($data): ?string
     {
         return $data['nome'] ?? null;
     }
