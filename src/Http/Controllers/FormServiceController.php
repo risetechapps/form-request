@@ -15,9 +15,7 @@ class FormServiceController extends Controller
     {
         $id = $request->id;
 
-        $data = Cache::remember("FORM_SERVICE_CEP_{$id}", Carbon::now()->addHours(24), function () use ($id) {
-            return ServicesForm::getCEP($id);
-        });
+        $data = ServicesForm::getCEP($id);
         return response()->json([
             'success' => !is_null($data),
             'data' => $data
@@ -28,9 +26,7 @@ class FormServiceController extends Controller
     {
         $id = $request->id;
 
-        $data = Cache::remember("FORM_SERVICE_CNPJ_{$id}", Carbon::now()->addHours(24), function () use ($id) {
-            return ServicesForm::getCNPJ($id);
-        });
+        $data = ServicesForm::getCNPJ($id);
 
         return response()->json([
             'success' => !is_null($data),
@@ -43,9 +39,7 @@ class FormServiceController extends Controller
         $cpf = $request->cpf;
         $date = $request->date;
 
-        $data = Cache::remember("FORM_SERVICE_CPF_{$cpf}_{$date}", Carbon::now()->addMonth(), function () use ($cpf, $date) {
-            return ServicesForm::getCPF($cpf, $date);
-        });
+        $data = ServicesForm::getCPF($cpf, $date);
 
         return response()->json([
             'success' => !is_null($data),
@@ -55,9 +49,7 @@ class FormServiceController extends Controller
 
     public function banks(Request $request): JsonResponse
     {
-        $data = Cache::remember("FORM_SERVICE_BANKS", Carbon::now()->addMonth(), function () {
-            return ServicesForm::getBANKS();
-        });
+        $data = ServicesForm::getBANKS();
 
         return response()->json([
             'success' => !is_null($data),
@@ -67,9 +59,7 @@ class FormServiceController extends Controller
 
     public function countries(Request $request): JsonResponse
     {
-        $data = Cache::remember("FORM_SERVICE_COUNTRIES", Carbon::now()->addMonth(), function () {
-            return ServicesForm::getCountries();
-        });
+        $data = ServicesForm::getCountries();
 
         return response()->json([
             'success' => !is_null($data),
@@ -81,9 +71,7 @@ class FormServiceController extends Controller
     {
         $country = $request->country;
 
-        $data = Cache::remember("FORM_SERVICE_STATE_{$country}", Carbon::now()->addMonth(), function () use ($country) {
-            return ServicesForm::getStates($country);
-        });
+        $data = ServicesForm::getStates($country);
 
         return response()->json([
             'success' => !is_null($data),
@@ -96,9 +84,7 @@ class FormServiceController extends Controller
         $country = $request->country;
         $state = $request->state;
 
-        $data = Cache::remember("FORM_SERVICE_CITIES_{$country}_{$state}", Carbon::now()->addMonth(), function () use ($country, $state) {
-            return ServicesForm::getCities($country, $state);
-        });
+        $data = ServicesForm::getCities($country, $state);
 
         return response()->json([
             'success' => !is_null($data),

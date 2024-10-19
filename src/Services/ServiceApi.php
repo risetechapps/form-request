@@ -45,8 +45,16 @@ class ServiceApi
                 Drivers\Geonames\States\StatesGitHub::class
             ],
 
+            'all_states' => [
+                Drivers\Geonames\States\StatesAllGitHub::class
+            ],
+
             'cities' => [
                 Drivers\Geonames\Cities\CitiesGitHub::class
+            ],
+
+            'all_cities' => [
+                Drivers\Geonames\Cities\CitiesAllGitHub::class
             ]
         ];
     }
