@@ -62,8 +62,8 @@ abstract class ServiceCep
         for ($i = 0; $i < count($data); $i++) {
             if (mb_strtolower($data[$i]['name']) == $name
                 || mb_strtolower($data[$i]['country']) == $name
-                || mb_strtolower($data[$i]['state_code']) == $name) {
-                return $data[$i]['state_code'];
+                || mb_strtolower($data[$i]['state']) == $name) {
+                return $data[$i]['state'];
             }
         }
 
