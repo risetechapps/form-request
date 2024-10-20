@@ -253,7 +253,7 @@ class ServicesForm extends Service implements ServicesFormContract
         }, 'SERVICES_FORM_COUNTRY_INFO', [$country]);
     }
 
-    public static function getStateInfo(mixed $country = '', string $state = '')
+    public static function getStateInfo(mixed $country = '', mixed $state = '')
     {
         $states = collect(self::getStates($country));
 
