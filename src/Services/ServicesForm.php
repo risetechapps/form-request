@@ -238,7 +238,7 @@ class ServicesForm extends Service implements ServicesFormContract
         }, 'SERVICES_FORM_CITIES', [$country, $state]);
     }
 
-    public static function getCountryInfo(string $country)
+    public static function getCountryInfo(mixed $country)
     {
         $countries = collect(self::getCountries());
 
@@ -253,7 +253,7 @@ class ServicesForm extends Service implements ServicesFormContract
         }, 'SERVICES_FORM_COUNTRY_INFO', [$country]);
     }
 
-    public static function getStateInfo(string $country = '', string $state = '')
+    public static function getStateInfo(mixed $country = '', mixed $state = '')
     {
         $states = collect(self::getStates($country));
 
@@ -274,7 +274,7 @@ class ServicesForm extends Service implements ServicesFormContract
         }, 'SERVICES_FORM_STATE_INFO', [$state]);
     }
 
-    public static function getCityInfo(string $city, string $state = '', string $country = '')
+    public static function getCityInfo(mixed $city, mixed $state = '', mixed $country = '')
     {
 
         if (empty($country) || empty($state)) {
